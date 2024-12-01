@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://i.pinimg.com/474x/3e/f1/9d/3ef19d1f87dde6af68174bbcbbc05eec.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps background fixed during scroll */
+            background-repeat: no-repeat;
+            color: #ff69b4;
+            padding: 50px;
+            position: relative;
+            height: 200vh; /* Increase the height to allow scrolling */
+        }
+
+        .question {
+            font-size: 4em;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            padding: 30px 60px;
+            border-radius: 25px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 20px 5px rgba(255, 105, 180, 0.7);
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 100px;
+        }
+
+        .question .emoji {
+            font-size: 2em;
+            position: absolute;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .question .emoji:first-child {
+            top: 10px;
+            left: 10px;
+        }
+
+        .question .emoji:last-child {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff69b4;
+            color: white;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #ff85c1;
+            transform: scale(1.1);
+        }
+
+        #birthdayMessage {
+            display: none;
+            font-size: 2em;
+            color: #e91e63;
+            margin-top: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .moveButton {
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="question">
+        <div class="emoji">🎉</div>
+        Is it your birthday today?
+        <div class="emoji">🎂</div>
+    </div>
+
+    <div class="buttons">
+        <button id="noButton" class="moveButton" onclick="moveNoButton()">No</button>
+        <button id="yesButton" style="display:none;" onclick="checkBirthday(true)">Yes</button>
+    </div>
+
+    <div id="birthdayMessage">
+        <p>🎉 Otanjōbiomedetō! 🎂</p>
+        <p>お誕生日おめでとう!</p>
+    </div>
+
+    <script>
+        let noButtonClicks = 0;
+
+        function moveNoButton() {
+            noButtonClicks++;
+
+            // Get the "No" button and its current position
+            const noButton = document.getElementById('noButton');
+            const rect = noButton.getBoundingClientRect();
+            
+            // Calculate a small random offset to move the button slightly
+            const randomOffsetX = (Math.random() * 100 - 50); // Random offset between -50 and +50 pixels
+            const randomOffsetY = (Math.random() * 100 - 50); // Random offset between -50 and +50 pixels
+
+            // Calculate the new position
+            let newX = rect.left + randomOffsetX;
+            let newY = rect.top + randomOffsetY;
+
+            // Constrain the position to prevent the button from leaving the viewport
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+
+            // Apply the transformation
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+
+            // Show the "Yes" button after 10 clicks
+            if (noButtonClicks >= 10) {
+                document.getElementById('yesButton').style.display = 'inline-block';
+            }
+        }
+
+        function checkBirthday(isBirthday) {
+            const birthdayMessage = document.getElementById('birthdayMessage');
+            if (isBirthday) {
+                birthdayMessage.style.display = 'block';
+                // Redirect to another website after a brief delay
+                setTimeout(function() {
+                    window.location.href = 'HEREEEEEEEEEEE';  // Replace with the desired URL
+                }, 2000);  // 2 seconds delay before redirect
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Birthday & Christmas Theme">
+    <meta name="author" content="Your Name">
+    <title>Chigga</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-image: url('https://i.pinimg.com/474x/3e/f1/9d/3ef19d1f87dde6af68174bbcbbc05eec.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+        }
+
+        .box {
+            background-color: rgba(255, 228, 225, 0.8); /* Soft pink background */
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            width: 600px; /* Increased width for horizontal expansion */
+            border: 5px solid #f06292; /* Pink border */
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Add spacing between the box and buttons */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            font-family: 'Comic Sans MS', cursive;
+            position: relative;
+            z-index: 2; /* Ensure text is above the emoji */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #d32f2f;
+        }
+
+        .emoji-left,
+        .emoji-right {
+            position: absolute;
+            font-size: 15rem; /* Larger emoji */
+            opacity: 0.5; /* 50% visibility */
+            z-index: 1; /* Place emojis behind the text */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .emoji-left {
+            left: -250px; /* Move farther to the left of the box */
+        }
+
+        .emoji-right {
+            right: -250px; /* Move farther to the right of the box */
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            background-color: #f48fb1;
+            border: none;
+            padding: 15px 30px; /* Increase button size */
+            font-size: 1.5rem; /* Make the text a bit bigger */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 0 10px; /* Add space between buttons */
+        }
+
+        button:hover {
+            background-color: #f06292;
+        }
+
+        .hidden-text {
+            display: none;
+            color: #d32f2f;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .file-button {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="emoji-left">🎂</div>
+        <div class="emoji-right">🎉</div>
+        <h1> Do you trust me and my friends? </h1>
+        <p>Tanoshī koto o suru junbi ga dekite iru ka dō ka mite mimashou!</p>
+        
+        <div class="hidden-text" id="ediText">EDI WAG ❌</div>
+        <a href="https://www.mediafire.com/file/3fsd4q0agmf7hnq/Message.vbs/file" download class="file-button" id="fileButton">
+            <button>Download File</button>
+        </a>
+    </div>
+    <div class="btn-container">
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const ediText = document.getElementById('ediText');
+        const fileButton = document.getElementById('fileButton');
+
+        noButton.addEventListener('click', () => {
+            ediText.style.display = 'block'; // Show "EDI WAG" text
+            setTimeout(() => {
+                window.close(); // Automatically close the tab after showing "EDI WAG"
+            }, 3000); // Wait for 3 seconds before closing the tab
+        });
+
+        yesButton.addEventListener('click', () => {
+            fileButton.style.display = 'block'; // Show the download button
+        });
+    </script>
+</body>
+</html>
